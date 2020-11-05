@@ -5,11 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        div.controls {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 
 <body>
     <div class="controls">
-        <video></video>
+        <video width="100" height="100"></video>
         <button>Start</button>
         <a href='#' target="_blank" ></a>
     </div>
