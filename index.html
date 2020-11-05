@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="controls">
+        <video></video>
+        <button>Start</button>
+        <a href='#' target="_blank" ></a>
+    </div>
+    <script type="module">
+        import QrScanner from './qr-scanner.min.js';
+        QrScanner.WORKER_PATH = './qr-scanner-worker.min.js';
+
+        const video = document.querySelector('video');
+        const btn = document.querySelector('button');
+        const a = document.querySelector('a');
+        const qrScanner = new QrScanner(video, result => { 
+            qrScanner.stop();
+            video.hidden = true;
+            a.hidden = false;
+            a.innerText = result;
+            a.href = result;
+        });
+        video.hidden = true;
+        a.hidden = true;
+        btn.onclick = () => {
+            btn.hidden = true;
+            video.hidden = false;
+            qrScanner.start();
+        }
+    </script>
+</body>
+
+</html>
